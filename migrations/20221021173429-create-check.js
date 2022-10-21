@@ -9,16 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      productId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'Products',
-          key: 'id'
-        },
-        onDelete: 'CASCADE',
-        onUpdate: 'RESTRICT',
-      },
       orderId: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -29,17 +19,21 @@ module.exports = {
         onDelete: 'CASCADE',
         onUpdate: 'RESTRICT',
       },
-      date: {
-        type: Sequelize.DATE
+      productId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Products',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'RESTRICT',
       },
-      emailOfClient: {
-        type: Sequelize.STRING,
-        unique: true,
-        validate: {
-          isEmail: true
-        }
+      amountOfProduct: {
+        type: Sequelize.DECIMAL,
+        allowNull: false
       },
-      orderPrice: {
+      totalPrice: {
         type: Sequelize.DECIMAL(10,2),
         allowNull: false
       },
